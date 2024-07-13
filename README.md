@@ -1,6 +1,6 @@
 # Money Manager
 
-![Logo Money Manager](./assets/images/LogoMoneyManager.svg)
+![Logo Money Manager](./assets/images/IconMoneyManager.png)
 
 ## Descrição
 
