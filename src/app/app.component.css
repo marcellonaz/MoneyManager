@@ -1,0 +1,106 @@
+.background-container {
+    background-image: url('../assets/images/fundoMoneyManager.svg'); /* Ajuste o caminho conforme necessário */
+    background-size: cover; /* Ajusta o tamanho da imagem para cobrir toda a área */
+    background-repeat: no-repeat; /* Não repete a imagem */
+    background-position: center; /* Centraliza a imagem */
+    min-height: 100vh; /* Garante que o fundo cubra toda a altura da viewport */
+    padding: 20px; /* Para garantir que o conteúdo não fique colado às bordas */
+  }
+  
+  .cash-flow-container {
+    background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+  }
+
+  .transaction-list {
+    display: flex; /* Utiliza flexbox para alinhar os itens na mesma linha */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se não houver espaço */
+    gap: 10px; /* Espaçamento entre os itens */
+  }
+  
+  .transaction-list mat-list-item {
+    flex: 1; /* Isso garante que cada item ocupe o espaço disponível igualmente */
+    min-width: 200px; /* Ajuste conforme necessário para o tamanho mínimo do item */
+  }
+  .transaction-form {
+    display: flex;
+    flex-direction: column; /* Para manter o botão de salvar abaixo dos campos */
+    gap: 10px; /* Espaçamento entre o botão e os campos */
+  }
+  
+  .form-row {
+    display: flex; /* Usar flexbox para colocar os campos na mesma linha */
+    justify-content: space-between; /* Distribui o espaço igualmente */
+    gap: 10px; /* Espaçamento entre os campos */
+  }
+  
+  .mat-form-field {
+    flex: 1; /* Faz os campos ocuparem o espaço disponível igualmente */
+    min-width: 150px; /* Ajusta conforme necessário para um tamanho mínimo */
+  }
+  
+  .totals {
+    margin: 20px 0; /* Espaço acima e abaixo dos totais */
+  }
+  
+  .mat-card {
+    margin-bottom: 15px; /* Espaço abaixo de cada cartão */
+  }
+  .transaction-item {
+    display: flex;
+    justify-content: space-between; /* Distribui o espaço entre os itens */
+    align-items: center; /* Alinha verticalmente no centro */
+  }
+  
+  .transaction-buttons {
+    margin-left: auto; /* Empurra os botões para a direita */
+    display: flex; /* Usar flexbox para alinhar os botões */
+    gap: 10px; /* Espaço entre os botões */
+  }
+  
+  .background-container {
+    position: relative;
+  }
+  
+  .logo {
+    position: absolute;
+    top: 20px; /* Ajuste a posição vertical conforme necessário */
+    left: 20px; /* Ajuste a posição horizontal conforme necessário */
+    height: 200px; /* Ajuste a altura conforme necessário */
+    z-index: 1; /* Certifique-se de que o logo está acima do fundo */
+    filter: drop-shadow(2px 2px 5px rgba(255, 255, 255, 0.5)); /* Sombra sutil */
+
+  }
+  .cash-flow-container mat-toolbar {
+    /* Centraliza o texto */
+    display: flex; /* Ativa o Flexbox */
+    justify-content: center; 
+    background-color: #0C3E6B; /* Adicione uma cor de fundo se necessário */
+  }
+  
+  .cash-flow-container mat-toolbar span {
+     text-align: center;
+    color: #fff; /* Muda a cor do texto */
+    font-size: 24px; /* Ajuste o tamanho da fonte se desejar */
+  }
+  
+  .save-button {
+    background-color: #0C3E6B; /* Cor de fundo do botão */
+    color: white; /* Cor do texto do botão */
+  }
+  
+  .month-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    margin: 20px 0;
+  }
+  
+  .month-selector span {
+    font-size: 20px; /* Aumenta o tamanho da fonte do mês */
+    color: #0C3E6B; /* Cor do texto, se desejar */
+    margin: 0 10px; /* Espaçamento horizontal entre os botões e o mês */
+  }
+  
