@@ -25,3 +25,30 @@ Money Manager é uma aplicação de gerenciamento financeiro que permite aos usu
    ```bash
    git clone https://github.com/marcellonaz/MoneyManager.git
    cd MoneyManager
+   ```
+2. **Instale as dependências:**
+  ```bash
+npm install
+```
+3. **Inicie o servidor JSON para simulação do backend:**
+
+ ```bash
+json-server --watch db/db.json
+```
+4. **Inicie a aplicação Angular:**
+
+ ```bash
+ng serve
+```
+5. **Acesse a aplicação:**
+
+Abra o navegador e acesse http://localhost:4200.
+
+## Estrutura do Projeto
+
+**src/:** Código-fonte da aplicação.
+**db/:** Contém o arquivo db.json, que simula o banco de dados.
+**src/assets/images/:** Pasta para armazenar imagens, como o logo.
+Contribuições
+Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir um pull request.
+
