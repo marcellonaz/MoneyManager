@@ -1,6 +1,6 @@
 # Money Manager
 
-![Logo Money Manager](./assets/images/IconMoneyManager.png)
+![Logo Money Manager](./src/assets/images/IconMoneyManager.png)
 
 ## Descrição
 
@@ -23,5 +23,5 @@ Money Manager é uma aplicação de gerenciamento financeiro que permite aos usu
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seuusuario/MoneyManager.git
+   git clone https://github.com/marcellonaz/MoneyManager.git
    cd MoneyManager
