@@ -1,27 +1,27 @@
-# MoneyManager
+# Money Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.13.
+![Logo Money Manager](./assets/images/LogoMoneyManager.svg)
 
-## Development server
+## Descrição
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Money Manager é uma aplicação de gerenciamento financeiro que permite aos usuários acompanhar suas entradas e saídas, proporcionando uma visão clara de suas finanças. Através de uma interface intuitiva e fácil de usar, os usuários podem registrar transações, visualizar totais mensais e manter o controle de seus gastos.
 
-## Code scaffolding
+## Funcionalidades
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **CRUD de Transações**: Adicione, edite e exclua transações financeiras.
+- **Visualização de Totais**: Veja rapidamente o total de entradas e saídas.
+- **Navegação Mensal**: Altere entre meses para visualizar transações passadas.
+- **Design Responsivo**: A interface é otimizada para dispositivos móveis e desktop.
 
-## Build
+## Tecnologias Utilizadas
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular
+- Angular Material
+- JSON Server para simulação de backend
 
-## Running unit tests
+## Como Executar o Projeto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. **Clone o repositório**:
+   ```bash
+   git clone https://github.com/seuusuario/MoneyManager.git
+   cd MoneyManager
