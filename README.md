@@ -13,6 +13,10 @@ Money Manager é uma aplicação de gerenciamento financeiro que permite aos usu
 - **Navegação Mensal**: Altere entre meses para visualizar transações passadas.
 - **Design Responsivo**: A interface é otimizada para dispositivos móveis e desktop.
 
+## Responsividade
+
+A aplicação Money Manager é totalmente responsiva, garantindo uma experiência de usuário otimizada em dispositivos móveis e desktops. O design adaptável permite que os usuários acessem todas as funcionalidades da aplicação em qualquer tamanho de tela, proporcionando conforto e praticidade no gerenciamento financeiro.
+
 ## Tecnologias Utilizadas
 
 - Angular
