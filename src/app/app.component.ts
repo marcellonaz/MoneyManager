@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component } from '@angular/core';
 
 interface Transaction {
-  id?: number; // Adiciona o id como opcional
+  id?: number;
   description: string;
   value: number;
   type: 'entrada' | 'saida';
+}
+
+interface ExchangeRate {
+  buy: number;
+  sell: number;
+  variation: number;
 }
 
 @Component({
@@ -24,8 +30,17 @@ export class AppComponent {
   months: string[] = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
   currentMonthIndex: number = 6; 
 
+  exchangeRate: ExchangeRate = {
+    buy: 0,
+    sell: 0,
+    variation: 0
+  };
+
+  previousRate: number = 5.40; 
+  currentRate: number = 0; 
+  variation: number = 0; 
   constructor(private http: HttpClient) {
-    this.loadTransactions();
+    this.fetchExchangeRate(); 
   }
 
   previousMonth() {
@@ -40,20 +55,16 @@ export class AppComponent {
 
   addTransaction() {
     const newTransaction: Transaction = { description: this.description, value: this.value, type: this.transactionType };
-
-    this.http.post<Transaction>('http://localhost:3000/transactions', newTransaction)
-      .subscribe(() => {
-        this.loadTransactions();
-        this.clearForm();
-      });
-  }
-
-  loadTransactions() {
-    this.http.get<Transaction[]>('http://localhost:3000/transactions')
-      .subscribe(transactions => {
-        this.transactions = transactions;
-        this.updateTotals();
-      });
+    this.transactions.push(newTransaction);
+    
+    if (this.transactionType === 'entrada') {
+      this.totalEntries += this.value;
+    } else {
+      this.totalExits += this.value;
+    }
+    
+    this.updateTotals();
+    this.clearForm();
   }
 
   updateTotals() {
@@ -67,9 +78,8 @@ export class AppComponent {
   }
 
   deleteTransaction(transaction: Transaction) {
-    this.http.delete(`http://localhost:3000/transactions/${transaction.id}`).subscribe(() => {
-      this.loadTransactions();
-    });
+    this.transactions = this.transactions.filter(t => t !== transaction);
+    this.updateTotals();
   }
 
   editTransaction(transaction: Transaction) {
@@ -83,5 +93,33 @@ export class AppComponent {
     this.description = '';
     this.value = 0;
     this.transactionType = 'entrada'; 
+  }
+
+  fetchExchangeRate() {
+    const apiUrl = 'https://api.exchangerate-api.com/v4/latest/USD';
+    this.http.get<any>(apiUrl)
+      .subscribe(data => {
+        this.currentRate = data.rates.BRL; 
+        this.exchangeRate.buy = this.currentRate; 
+        this.exchangeRate.sell = this.currentRate; 
+        if (this.previousRate > 0) {
+          this.variation = ((this.currentRate - this.previousRate) / this.previousRate) * 100;
+          this.exchangeRate.variation = this.variation; 
+        } else {
+          this.exchangeRate.variation = 0; 
+        }
+
+        console.log('Taxa Atual:', this.currentRate);
+        console.log('Variação Percentual:', this.variation);
+        
+        
+        this.previousRate = this.currentRate;
+      }, error => {
+        console.error('Erro ao buscar a cotação:', error);
+      });
+  }
+
+  formatCurrency(value: number): string {
+    return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
   }
 }

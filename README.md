@@ -44,6 +44,13 @@ ng serve
 
 Abra o navegador e acesse http://localhost:4200.
 
+## Testes Unitários
+Os testes unitários para o CurrencyService são realizados usando o HttpClientTestingModule. Para executar os testes, utilize o seguinte comando:
+
+```bash
+ng test
+```
+
 ## Estrutura do Projeto
 
 **src/:** Código-fonte da aplicação.

@@ -1,3 +1,16 @@
 {
-  "transactions": []
+  "transactions": [
+    {
+      "id": "a78a",
+      "description": "entrada 1",
+      "value": 150,
+      "type": "entrada"
+    },
+    {
+      "id": "0ed6",
+      "description": "entrada 2",
+      "value": 50,
+      "type": "saida"
+    }
+  ]
 }

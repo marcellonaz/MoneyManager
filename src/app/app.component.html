@@ -8,13 +8,13 @@
 
     <div class="month-selector">
       <button mat-button (click)="previousMonth()">←</button>
-      <span>{{ currentMonth }} - Total: {{ totalEntries - totalExits }}</span>
+      <span>{{ currentMonth }} - Total: R$ {{ (totalEntries - totalExits) | number: '1.2-2' }}</span>
       <button mat-button (click)="nextMonth()">→</button>
     </div>
 
     <div class="totals">
-      <mat-card>Total Entradas: {{ totalEntries }}</mat-card>
-      <mat-card>Total Saídas: {{ totalExits }}</mat-card>
+      <mat-card>Total Entradas: R$ {{ totalEntries | number: '1.2-2' }}</mat-card>
+      <mat-card>Total Saídas: R$ {{ totalExits | number: '1.2-2' }}</mat-card>
     </div>
 
     <form (ngSubmit)="addTransaction()" class="transaction-form">
@@ -47,7 +47,7 @@
         <mat-list>
           <mat-list-item *ngFor="let transaction of transactions" class="transaction-item">
             <span [ngClass]="{'red-text': transaction.type === 'saida'}">
-              {{ transaction.description }} - {{ transaction.value }} ({{ transaction.type }})
+              {{ transaction.description }} - R$ {{ transaction.value | number: '1.2-2' }} ({{ transaction.type }})
             </span>
             <div class="transaction-buttons">
               <button mat-button (click)="editTransaction(transaction)">Editar</button>
@@ -57,5 +57,36 @@
         </mat-list>
       </div>
     </div>
+  </mat-card>
+
+  <!-- Formulário para cotação do dólar -->
+  <mat-card class="exchange-rate-container">
+    <mat-toolbar class="exchange-rate-toolbar">
+      <span class="toolbar-title">Cotação do Dólar</span>
+    </mat-toolbar>
+
+    <form (ngSubmit)="fetchExchangeRate()" class="exchange-rate-form">
+      <div class="form-row">
+        <mat-form-field appearance="fill">
+          <mat-label>Compra</mat-label>
+          <input matInput [(ngModel)]="exchangeRate.buy" name="buy" disabled>
+          <span *ngIf="exchangeRate.buy">R$ {{ exchangeRate.buy | number: '1.2-2' }}</span>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Venda</mat-label>
+          <input matInput [(ngModel)]="exchangeRate.sell" name="sell" disabled>
+          <span *ngIf="exchangeRate.sell">R$ {{ exchangeRate.sell | number: '1.2-2' }}</span>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Variação (%)</mat-label>
+          <input matInput [(ngModel)]="exchangeRate.variation" name="variation" disabled>
+          <span *ngIf="exchangeRate.variation">{{ exchangeRate.variation | number: '1.2-2' }} %</span>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" class="fetch-button">Pesquisar</button>
+    </form>
   </mat-card>
 </div>
